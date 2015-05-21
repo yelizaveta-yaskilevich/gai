@@ -43,3 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
