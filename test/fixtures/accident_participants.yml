@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  accident_id: 
+  person_id: 
+  vehicle_id: 
+  is_driver: false
+
+two:
+  accident_id: 
+  person_id: 
+  vehicle_id: 
+  is_driver: false

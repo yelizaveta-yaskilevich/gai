@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_id: 
+  issued_on: 2015-05-22
+  ended_on: 2015-05-22
+
+two:
+  person_id: 
+  issued_on: 2015-05-22
+  ended_on: 2015-05-22

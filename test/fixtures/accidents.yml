@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  occured_at: 2015-05-22 00:50:48
+  protocol_number: MyString
+  notes: MyText
+
+two:
+  occured_at: 2015-05-22 00:50:48
+  protocol_number: MyString
+  notes: MyText
