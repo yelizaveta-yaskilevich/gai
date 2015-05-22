@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   add_index "accident_participants", ["vehicle_id"], name: "index_accident_participants_on_vehicle_id"
 
   create_table "accidents", force: :cascade do |t|
-    t.datetime "occured_at"
-    t.string   "protocol_number"
+    t.datetime "occured_at",      null: false
+    t.string   "protocol_number", null: false
     t.text     "notes"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -56,17 +56,18 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   add_index "licenses", ["person_id"], name: "index_licenses_on_person_id"
 
   create_table "people", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "last_name"
-    t.string   "address_region"
-    t.string   "address_area"
-    t.string   "address_city"
-    t.string   "address_street"
+    t.string   "passport",       limit: 12, null: false
+    t.string   "first_name",                null: false
+    t.string   "middle_name",               null: false
+    t.string   "last_name",                 null: false
+    t.string   "address_region",            null: false
+    t.string   "address_area",              null: false
+    t.string   "address_city",              null: false
+    t.string   "address_street",            null: false
     t.string   "address_house"
     t.string   "address_flat"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade do |t|
