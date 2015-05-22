@@ -1,10 +1,9 @@
 class CreateAccidents < ActiveRecord::Migration
   def change
     create_table :accidents do |t|
-      t.datetime :occured_at
-      t.string :protocol_number
+      t.datetime :occured_at, null: false
+      t.string :protocol_number, null: false
       t.text :notes
-
       t.timestamps null: false
     end
   end

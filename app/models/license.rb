@@ -12,4 +12,8 @@ class License < ActiveRecord::Base
 
   validates :ended_on,
     presence: true
+
+  def name
+    number
+  end
 end
