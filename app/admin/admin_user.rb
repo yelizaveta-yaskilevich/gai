@@ -1,30 +1,34 @@
-ActiveAdmin.register AdminUser do
+ActiveAdmin.register User do
   menu label: 'Пользователи', parent: 'Система', priority: 6
 
-  permit_params :email, :password, :password_confirmation
+  permit_params :username, :password, :password_confirmation
 
   index do
     selectable_column
-    id_column
-    column :email
-    column :current_sign_in_at
-    column :sign_in_count
+    column :username
     column :created_at
     actions
   end
 
-  filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
+  filter :username
   filter :created_at
 
+  show do
+    panel 'Пользователь' do
+      attributes_table_for user do
+        row :username
+        row :created_at
+        row :updated_at
+      end
+    end
+  end
+
   form do |f|
-    f.inputs "Admin Details" do
-      f.input :email
+    f.inputs 'Пользователь' do
+      f.input :username
       f.input :password
       f.input :password_confirmation
     end
     f.actions
   end
-
 end
