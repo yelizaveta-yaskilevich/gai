@@ -1,0 +1,21 @@
+ru:
+  active_admin:
+    new_model: "Новая запись"
+    edit_model: "Редактирование"
+    delete_model: "Удалить"
+
+    pagination:
+      empty: "Ничего не найдено"
+      one: "Результат: <b>1</b> запись"
+      one_page: "Результат: <b>%{n}</b> записей"
+      multiple: "Результат: записи <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{total}</b>"
+      multiple_without_total: "Результат: записи <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+      entry:
+        one: "запись"
+        few: "записи"
+        many: "записей"
+        other: "записей"
+
+  formtastic:
+    create: "Создать"
+    update: "Сохранить"

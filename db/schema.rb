@@ -68,16 +68,6 @@ ActiveRecord::Schema.define(version: 20150521215052) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "registrations", force: :cascade do |t|
-    t.integer  "vehicle_id"
-    t.string   "number"
-    t.date     "issued_on"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "registrations", ["vehicle_id"], name: "index_registrations_on_vehicle_id"
-
   create_table "users", force: :cascade do |t|
     t.string   "username",            null: false
     t.string   "encrypted_password",  null: false
@@ -111,13 +101,15 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   add_index "vehicle_models", ["vehicle_category_id"], name: "index_vehicle_models_on_vehicle_category_id"
 
   create_table "vehicles", force: :cascade do |t|
-    t.string   "vin"
-    t.integer  "vehicle_model_id"
-    t.integer  "vehicle_color_id"
-    t.integer  "year"
-    t.integer  "person_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "vin",                 limit: 17, null: false
+    t.string   "reg_number",          limit: 9,  null: false
+    t.date     "reg_issued_on",                  null: false
+    t.integer  "vehicle_model_id",               null: false
+    t.integer  "vehicle_color_id",               null: false
+    t.integer  "person_id",                      null: false
+    t.integer  "year_of_manufacture",            null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "vehicles", ["person_id"], name: "index_vehicles_on_person_id"
