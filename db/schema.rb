@@ -45,11 +45,12 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   add_index "license_vehicle_categories", ["vehicle_category_id"], name: "index_license_vehicle_categories_on_vehicle_category_id"
 
   create_table "licenses", force: :cascade do |t|
-    t.integer  "person_id"
-    t.date     "issued_on"
-    t.date     "ended_on"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "number",     limit: 10, null: false
+    t.integer  "person_id",             null: false
+    t.date     "issued_on",             null: false
+    t.date     "ended_on",              null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "licenses", ["person_id"], name: "index_licenses_on_person_id"

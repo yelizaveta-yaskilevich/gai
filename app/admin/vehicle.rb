@@ -2,7 +2,7 @@ ActiveAdmin.register Vehicle do
   menu label: 'Транспортные средства', priority: 1
 
   index title: 'Транспортные средства' do
-    column('Номер') do |vehicle| vehicle.reg_number
+    column('Номер') do |vehicle|
       link_to vehicle.reg_number, admin_vehicle_path(vehicle)
     end
     column('Дата регистрации'){ |vehicle| vehicle.reg_issued_on }
@@ -18,6 +18,9 @@ ActiveAdmin.register Vehicle do
   filter :vehicle_model, label: 'Модель'
   filter :vehicle_color, label: 'Цвет'
   filter :year_of_manufacture, label: 'Год выпуска'
+
+  permit_params :reg_number, :reg_issued_on, :person_id, :vehicle_model_id,
+    :vehicle_color_id, :vin, :year_of_manufacture
 
   form do |f|
     inputs 'Государственная регистрация' do
@@ -35,9 +38,6 @@ ActiveAdmin.register Vehicle do
 
     actions
   end
-
-  permit_params :reg_number, :reg_issued_on, :person_id, :vehicle_model_id,
-    :vehicle_color_id, :vin, :year_of_manufacture
 
   show do
     panel 'Государственная регистрация' do

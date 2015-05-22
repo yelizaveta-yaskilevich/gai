@@ -1,10 +1,10 @@
 class CreateLicenses < ActiveRecord::Migration
   def change
     create_table :licenses do |t|
-      t.references :person, index: true, foreign_key: true
-      t.date :issued_on
-      t.date :ended_on
-
+      t.string :number, null: false, limit: 10
+      t.references :person, index: true, foreign_key: true, null: false
+      t.date :issued_on, null: false
+      t.date :ended_on, null: false
       t.timestamps null: false
     end
   end

@@ -16,6 +16,10 @@ ru:
         many: "записей"
         other: "записей"
 
+    blank_slate:
+      content: "Записи отсутсвуют."
+      link: "Создать"
+
   formtastic:
     create: "Создать"
     update: "Сохранить"

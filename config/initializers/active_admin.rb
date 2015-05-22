@@ -139,6 +139,7 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
+  config.current_filters = false
 
   # == Setting a Favicon
   #
