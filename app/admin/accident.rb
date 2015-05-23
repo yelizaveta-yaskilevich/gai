@@ -4,10 +4,10 @@ ActiveAdmin.register Accident do
   permit_params :protocol_number, :occured_at, :notes
 
   index title: 'Дорожно-транспортные происшествия' do
-    column('Номер протокола') do |accident|
+    column('Номер протокола', sortable: 'protocol_number') do |accident|
       link_to accident.protocol_number, admin_accident_path(accident)
     end
-    column('Время происшествия'){ |accident| accident.occured_at }
+    column('Время происшествия', :occured_at)
   end
 
   filter :protocol_number, label: 'Номер протокола'
