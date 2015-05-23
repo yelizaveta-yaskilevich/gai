@@ -32,6 +32,7 @@ ru:
     failure:
       user:
         unauthenticated: "Требуется ввод параметров учетной записи"
+        invalid: "Неверно введены параметры учетной записи"
         not_found_in_database: "Неверно введены параметры учетной записи"
 
     sessions:
