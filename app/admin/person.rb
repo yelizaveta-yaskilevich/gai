@@ -78,6 +78,7 @@ ActiveAdmin.register Person do
         column('Номер') do |license|
           link_to license.number, admin_license_path(license)
         end
+        column('Категории'){ |license| license.vehicle_categories.order(:id).map(&:name).join(', ') }
         column('Дата выдачи'){ |license| license.issued_on }
         column('Дата завершения'){ |license| license.ended_on }
       end

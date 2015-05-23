@@ -1,5 +1,6 @@
 class License < ActiveRecord::Base
   belongs_to :person
+  has_and_belongs_to_many :vehicle_categories, join_table: 'license_vehicle_categories'
 
   validates :number,
     presence: true

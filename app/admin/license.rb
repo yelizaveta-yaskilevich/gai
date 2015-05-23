@@ -1,12 +1,13 @@
 ActiveAdmin.register License do
   menu label: 'Удостоверения', priority: 2
 
-  permit_params :number, :person_id, :issued_on, :ended_on
+  permit_params :number, :person_id, :issued_on, :ended_on, vehicle_category_ids: []
 
   index title: 'Водительские удостоверения' do
     column('Номер') do |license|
       link_to license.number, admin_license_path(license)
     end
+    column('Категории'){ |license| license.vehicle_categories.order(:id).map(&:name).join(', ') }
     column('Гражданин'){ |license| license.person.name }
     column('Действительно с'){ |license| license.issued_on }
     column('Действительно до'){ |license| license.ended_on }
@@ -21,6 +22,7 @@ ActiveAdmin.register License do
       input :number, label: 'Номер удостоверения'
       input :issued_on, label: 'Действительно с', start_year: 1930, end_year: 2030
       input :ended_on, label: 'Действительно до', start_year: 1930, end_year: 2030
+      input :vehicle_categories, label: 'Категории', as: :check_boxes
     end
     actions
   end
@@ -32,6 +34,7 @@ ActiveAdmin.register License do
         row('Номер удостоверения'){ license.number }
         row('Действительно с'){ license.issued_on }
         row('Действительно до'){ license.ended_on }
+        row('Категории'){ license.vehicle_categories.order(:id).map(&:name).join(', ') }
       end
     end
   end
