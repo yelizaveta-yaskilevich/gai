@@ -28,7 +28,8 @@ class Vehicle < ActiveRecord::Base
     uniqueness: true
 
   validates :year_of_manufacture,
-    presence: true
+    presence: true,
+    numericality: { allow_nil: true, only_integer: true, greater_than_or_equal_to: 1900, less_than_or_equal_to: 2030 }
 
   def name
     reg_number
