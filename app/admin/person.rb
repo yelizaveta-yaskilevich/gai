@@ -86,7 +86,7 @@ ActiveAdmin.register Person do
 
     panel 'Транспортные средства' do
       table_for person.vehicles do
-        column('Регистрационный номер') do |vehicle|
+        column('Рег. номер') do |vehicle|
           link_to vehicle.reg_number, admin_vehicle_path(vehicle)
         end
         column('Дата регистрации'){ |vehicle| vehicle.reg_issued_on }
@@ -94,6 +94,20 @@ ActiveAdmin.register Person do
         column('Цвет'){ |vehicle| vehicle.vehicle_color.name }
         column('Год выпуска'){ |vehicle| vehicle.year_of_manufacture }
         column('Кол-во ДТП'){ |vehicle| vehicle.accidents_count }
+      end
+    end
+
+    panel 'Дорожно-траспортные происшествия' do
+      table_for person.accident_participant do
+        column('Номер протокола') do |paticipant|
+          link_to paticipant.accident.protocol_number, admin_accident_path(paticipant.accident)
+        end
+        column('Рег. номер') do |paticipant|
+          link_to paticipant.vehicle.reg_number, admin_vehicle_path(paticipant.vehicle)
+        end
+        column('Модель'){ |paticipant| paticipant.vehicle.vehicle_model.name }
+        column('Цвет'){ |paticipant| paticipant.vehicle.vehicle_color.name }
+        column('Год выпуска'){ |paticipant| paticipant.vehicle.year_of_manufacture }
       end
     end
   end

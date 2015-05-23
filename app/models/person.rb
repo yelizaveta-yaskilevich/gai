@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
   has_many :vehicles
   has_many :licenses
-  has_many :accidients
+  has_many :accident_participant
 
   validates :last_name, presence: true
   validates :first_name, presence: true

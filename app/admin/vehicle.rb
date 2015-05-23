@@ -79,7 +79,9 @@ ActiveAdmin.register Vehicle do
 
     panel 'Участие в ДТП' do
       table_for vehicle.accidents do
-        column('Номер протокола'){ |i| i.protocol_number }
+        column('Номер протокола') do |i|
+          link_to i.protocol_number, admin_accident_path(i)
+        end
         column('Время происшествия'){ |i| i.occured_at }
       end
     end
