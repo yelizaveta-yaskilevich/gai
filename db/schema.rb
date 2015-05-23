@@ -56,18 +56,20 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   add_index "licenses", ["person_id"], name: "index_licenses_on_person_id"
 
   create_table "people", force: :cascade do |t|
-    t.string   "passport",       limit: 12, null: false
-    t.string   "first_name",                null: false
-    t.string   "middle_name",               null: false
-    t.string   "last_name",                 null: false
-    t.string   "address_region",            null: false
-    t.string   "address_area",              null: false
-    t.string   "address_city",              null: false
-    t.string   "address_street",            null: false
+    t.string   "first_name",                    null: false
+    t.string   "middle_name",                   null: false
+    t.string   "last_name",                     null: false
+    t.string   "passport_number",    limit: 12, null: false
+    t.string   "passport_issued_by",            null: false
+    t.date     "passport_issued_on",            null: false
+    t.string   "address_region",                null: false
+    t.string   "address_area",                  null: false
+    t.string   "address_city",                  null: false
+    t.string   "address_street",                null: false
     t.string   "address_house"
     t.string   "address_flat"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,9 +3,6 @@ class Person < ActiveRecord::Base
   has_many :licenses
   has_many :accidients
 
-  validates :passport,
-    presence: true
-
   validates :last_name,
     presence: true
 
@@ -13,6 +10,15 @@ class Person < ActiveRecord::Base
     presence: true
 
   validates :middle_name,
+    presence: true
+
+  validates :passport_number,
+    presence: true
+
+  validates :passport_issued_by,
+    presence: true
+
+  validates :passport_issued_on,
     presence: true
 
   validates :address_region,
