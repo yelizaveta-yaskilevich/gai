@@ -14,5 +14,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :address_house
       t.string :address_flat
     end
+
+    add_index :people, :passport_number, unique: true
   end
 end

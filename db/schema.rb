@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 20150521215052) do
     t.string "address_flat"
   end
 
+  add_index "people", ["passport_number"], name: "index_people_on_passport_number", unique: true
+
   create_table "users", force: :cascade do |t|
     t.string   "username",            null: false
     t.string   "encrypted_password",  null: false
