@@ -1,5 +1,8 @@
 ActiveAdmin.register AccidentParticipant do
+  menu false
   belongs_to :accident
+  navigation_menu :default
+
   actions :new, :create, :destroy
 
   permit_params :accident_id, :person_id, :vehicle_id
