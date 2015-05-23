@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   add_index "accidents", ["protocol_number"], name: "index_accidents_on_protocol_number", unique: true
 
   create_table "license_vehicle_categories", force: :cascade do |t|
-    t.integer "license_id"
-    t.integer "vehicle_category_id"
+    t.integer "license_id",          null: false
+    t.integer "vehicle_category_id", null: false
   end
 
   add_index "license_vehicle_categories", ["license_id", "vehicle_category_id"], name: "index_license_vehicle_categories_uniq", unique: true
@@ -78,20 +78,20 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true
 
   create_table "vehicle_categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name",        null: false
     t.text   "description"
   end
 
   add_index "vehicle_categories", ["name"], name: "index_vehicle_categories_on_name", unique: true
 
   create_table "vehicle_colors", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
   end
 
   add_index "vehicle_colors", ["name"], name: "index_vehicle_colors_on_name", unique: true
 
   create_table "vehicle_models", force: :cascade do |t|
-    t.integer "vehicle_category_id"
+    t.integer "vehicle_category_id", null: false
     t.string  "name"
   end
 
