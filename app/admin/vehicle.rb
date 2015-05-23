@@ -8,16 +8,16 @@ ActiveAdmin.register Vehicle do
   end
 
   index title: 'Транспортные средства' do
-    column('Номер') do |vehicle|
+    column('Номер', sortable: 'reg_number') do |vehicle|
       link_to vehicle.reg_number, admin_vehicle_path(vehicle)
     end
-    column('Категория ТС') do |vehicle|
+    column('Категория ТС', sortable: 'vehicle_categories.name') do |vehicle|
       vehicle.vehicle_category.name
     end
-    column('Модель'){ |vehicle| vehicle.vehicle_model.name }
-    column('Цвет'){ |vehicle| vehicle.vehicle_color.name }
-    column('Год'){ |vehicle| vehicle.year_of_manufacture }
-    column('Владелец'){ |vehicle| vehicle.person.name }
+    column('Модель', sortable: 'vehicle_models.name'){ |vehicle| vehicle.vehicle_model.name }
+    column('Цвет', sortable: 'vehicle_colors.name'){ |vehicle| vehicle.vehicle_color.name }
+    column('Год', :year_of_manufacture)
+    column('Владелец', :person, sortable: 'people.last_name')
   end
 
   filter :reg_number, label: 'Номер'
