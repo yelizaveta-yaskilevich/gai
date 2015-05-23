@@ -8,7 +8,6 @@ class CreateVehicles < ActiveRecord::Migration
       t.references :vehicle_color, index: true, foreign_key: true, null: false
       t.references :person, index: true, foreign_key: true, null: false
       t.integer :year_of_manufacture, null: false
-      t.timestamps null: false
     end
   end
 end

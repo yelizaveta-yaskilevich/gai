@@ -4,7 +4,6 @@ class CreateAccidents < ActiveRecord::Migration
       t.datetime :occured_at, null: false
       t.string :protocol_number, null: false
       t.text :notes
-      t.timestamps null: false
     end
   end
 end

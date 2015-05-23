@@ -20,6 +20,20 @@ ru:
       content: "Записи отсутсвуют."
       link: "Создать"
 
+    devise:
+      username:
+        title: "Имя"
+
   formtastic:
     create: "Создать"
     update: "Сохранить"
+
+  devise:
+    failure:
+      user:
+        unauthenticated: "Требуется ввод параметров учетной записи"
+        not_found_in_database: "Неверно введены параметры учетной записи"
+
+    sessions:
+      user:
+        signed_in: "Вход успешно выполнен"

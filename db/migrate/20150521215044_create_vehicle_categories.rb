@@ -3,8 +3,6 @@ class CreateVehicleCategories < ActiveRecord::Migration
     create_table :vehicle_categories do |t|
       t.string :name
       t.text :description
-
-      t.timestamps null: false
     end
   end
 end

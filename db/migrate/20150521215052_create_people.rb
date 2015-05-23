@@ -13,7 +13,6 @@ class CreatePeople < ActiveRecord::Migration
       t.string :address_street, null: false
       t.string :address_house
       t.string :address_flat
-      t.timestamps null: false
     end
   end
 end

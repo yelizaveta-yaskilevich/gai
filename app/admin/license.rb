@@ -7,9 +7,9 @@ ActiveAdmin.register License do
     column('Номер') do |license|
       link_to license.number, admin_license_path(license)
     end
-    column('Выдано'){ |license| license.person.name }
-    column('Дата выдачи'){ |license| license.issued_on }
-    column('Дата завершения'){ |license| license.ended_on }
+    column('Гражданин'){ |license| license.person.name }
+    column('Действительно с'){ |license| license.issued_on }
+    column('Действительно до'){ |license| license.ended_on }
   end
 
   filter :number, label: 'Номер'
@@ -19,22 +19,21 @@ ActiveAdmin.register License do
 
   form do |f|
     inputs 'Водительское удостоверение' do
-      input :number, label: 'Номер'
-      input :person, label: 'Выдано'
-      input :issued_on, label: 'Дата выдачи'
-      input :ended_on, label: 'Дата завершения'
+      input :person, label: 'Гражданин'
+      input :number, label: 'Номер удостоверения'
+      input :issued_on, label: 'Действительно с'
+      input :ended_on, label: 'Действительно до'
     end
-
     actions
   end
 
   show do
     panel 'Водительское удостоверение' do
       attributes_table_for license do
-        row('Номер'){ license.number }
-        row('Выдано'){ license.person }
-        row('Дата выдачи'){ license.issued_on }
-        row('Дата завершения'){ license.ended_on }
+        row('Гражданин'){ license.person }
+        row('Номер удостоверения'){ license.number }
+        row('Действительно с'){ license.issued_on }
+        row('Действительно до'){ license.ended_on }
       end
     end
   end
