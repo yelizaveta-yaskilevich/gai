@@ -56,5 +56,28 @@ ActiveAdmin.register Person do
         row('Квартира'){ person.address_flat }
       end
     end
+
+    panel 'Водительские удостоверения' do
+      table_for person.licenses do
+        column('Номер') do |license|
+          link_to license.number, admin_license_path(license)
+        end
+        column('Дата выдачи'){ |license| license.issued_on }
+        column('Дата завершения'){ |license| license.ended_on }
+      end
+    end
+
+    panel 'Транспортные средства' do
+      table_for person.vehicles do
+        column('Регистрационный номер') do |vehicle|
+          link_to vehicle.reg_number, admin_vehicle_path(vehicle)
+        end
+        column('Дата регистрации'){ |vehicle| vehicle.reg_issued_on }
+        column('Модель'){ |vehicle| vehicle.vehicle_model.name }
+        column('Цвет'){ |vehicle| vehicle.vehicle_color.name }
+        column('Год выпуска'){ |vehicle| vehicle.year_of_manufacture }
+        column('Кол-во ДТП'){ |vehicle| vehicle.accidents_count }
+      end
+    end
   end
 end

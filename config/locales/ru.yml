@@ -1,7 +1,7 @@
 ru:
   active_admin:
     new_model: "Новая запись"
-    edit_model: "Редактирование"
+    edit_model: "Редактировать"
     delete_model: "Удалить"
 
     pagination:

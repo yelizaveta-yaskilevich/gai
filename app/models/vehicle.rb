@@ -3,6 +3,9 @@ class Vehicle < ActiveRecord::Base
   belongs_to :vehicle_color
   belongs_to :person
 
+  has_many :accident_participant
+  has_many :accidents, through: :accident_participant
+
   validates :reg_number,
     presence: true
 
@@ -26,5 +29,9 @@ class Vehicle < ActiveRecord::Base
 
   def name
     reg_number
+  end
+
+  def accidents_count
+    accidents.count
   end
 end

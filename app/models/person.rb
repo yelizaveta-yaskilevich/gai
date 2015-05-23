@@ -1,4 +1,8 @@
 class Person < ActiveRecord::Base
+  has_many :vehicles
+  has_many :licenses
+  has_many :accidients
+
   validates :passport,
     presence: true
 
