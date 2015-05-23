@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
-  menu label: 'Пользователи', parent: 'Система', priority: 6
+  menu false
+  # menu label: 'Пользователи', parent: 'Система', priority: 6
 
   permit_params :username, :password, :password_confirmation
 

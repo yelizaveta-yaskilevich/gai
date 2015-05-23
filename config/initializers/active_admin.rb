@@ -197,7 +197,7 @@ ActiveAdmin.setup do |config|
   config.namespace :admin do |admin|
     admin.build_menu do |menu|
       menu.add label: 'Справочник', priority: 10
-      menu.add label: 'Система', priority: 20
+      # menu.add label: 'Система', priority: 20
     end
   end
   #
