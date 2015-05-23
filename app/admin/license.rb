@@ -13,9 +13,7 @@ ActiveAdmin.register License do
   end
 
   filter :number, label: 'Номер'
-  filter :person, label: 'Выдано'
-  filter :issued_on, label: 'Дата выдачи'
-  filter :ended_on, label: 'Дата завершения'
+  filter :person, label: 'Гражданин'
 
   form do |f|
     inputs 'Водительское удостоверение' do
