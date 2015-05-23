@@ -6,5 +6,7 @@ class CreateLicenses < ActiveRecord::Migration
       t.date :issued_on, null: false
       t.date :ended_on, null: false
     end
+
+    add_index :licenses, :number, unique: true
   end
 end

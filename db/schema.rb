@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150521215052) do
     t.integer "vehicle_id",  null: false
   end
 
+  add_index "accident_participants", ["accident_id", "person_id"], name: "index_accident_participants_on_accident_id_and_person_id", unique: true
+  add_index "accident_participants", ["accident_id", "vehicle_id"], name: "index_accident_participants_on_accident_id_and_vehicle_id", unique: true
   add_index "accident_participants", ["accident_id"], name: "index_accident_participants_on_accident_id"
   add_index "accident_participants", ["person_id"], name: "index_accident_participants_on_person_id"
   add_index "accident_participants", ["vehicle_id"], name: "index_accident_participants_on_vehicle_id"
@@ -29,11 +31,14 @@ ActiveRecord::Schema.define(version: 20150521215052) do
     t.text     "notes"
   end
 
+  add_index "accidents", ["protocol_number"], name: "index_accidents_on_protocol_number", unique: true
+
   create_table "license_vehicle_categories", force: :cascade do |t|
     t.integer "license_id"
     t.integer "vehicle_category_id"
   end
 
+  add_index "license_vehicle_categories", ["license_id", "vehicle_category_id"], name: "index_license_vehicle_categories_uniq", unique: true
   add_index "license_vehicle_categories", ["license_id"], name: "index_license_vehicle_categories_on_license_id"
   add_index "license_vehicle_categories", ["vehicle_category_id"], name: "index_license_vehicle_categories_on_vehicle_category_id"
 
@@ -44,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150521215052) do
     t.date    "ended_on",             null: false
   end
 
+  add_index "licenses", ["number"], name: "index_licenses_on_number", unique: true
   add_index "licenses", ["person_id"], name: "index_licenses_on_person_id"
 
   create_table "people", force: :cascade do |t|
@@ -76,15 +82,20 @@ ActiveRecord::Schema.define(version: 20150521215052) do
     t.text   "description"
   end
 
+  add_index "vehicle_categories", ["name"], name: "index_vehicle_categories_on_name", unique: true
+
   create_table "vehicle_colors", force: :cascade do |t|
     t.string "name"
   end
+
+  add_index "vehicle_colors", ["name"], name: "index_vehicle_colors_on_name", unique: true
 
   create_table "vehicle_models", force: :cascade do |t|
     t.integer "vehicle_category_id"
     t.string  "name"
   end
 
+  add_index "vehicle_models", ["name"], name: "index_vehicle_models_on_name", unique: true
   add_index "vehicle_models", ["vehicle_category_id"], name: "index_vehicle_models_on_vehicle_category_id"
 
   create_table "vehicles", force: :cascade do |t|
@@ -98,7 +109,9 @@ ActiveRecord::Schema.define(version: 20150521215052) do
   end
 
   add_index "vehicles", ["person_id"], name: "index_vehicles_on_person_id"
+  add_index "vehicles", ["reg_number"], name: "index_vehicles_on_reg_number", unique: true
   add_index "vehicles", ["vehicle_color_id"], name: "index_vehicles_on_vehicle_color_id"
   add_index "vehicles", ["vehicle_model_id"], name: "index_vehicles_on_vehicle_model_id"
+  add_index "vehicles", ["vin"], name: "index_vehicles_on_vin", unique: true
 
 end

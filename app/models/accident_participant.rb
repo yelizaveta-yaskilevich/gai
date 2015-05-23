@@ -4,6 +4,12 @@ class AccidentParticipant < ActiveRecord::Base
   belongs_to :vehicle
 
   validates :accident, presence: true
-  validates :person, presence: true
-  validates :vehicle, presence: true
+
+  validates :person,
+    presence: true,
+    uniqueness: { scope: :accident }
+
+  validates :vehicle,
+    presence: true,
+    uniqueness: { scope: :accident }
 end

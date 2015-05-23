@@ -9,5 +9,8 @@ class CreateVehicles < ActiveRecord::Migration
       t.references :person, index: true, foreign_key: true, null: false
       t.integer :year_of_manufacture, null: false
     end
+
+    add_index :vehicles, :vin, unique: true
+    add_index :vehicles, :reg_number, unique: true
   end
 end

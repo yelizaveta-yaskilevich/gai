@@ -8,7 +8,8 @@ class Vehicle < ActiveRecord::Base
   has_many :accidents, through: :accident_participant
 
   validates :reg_number,
-    presence: true
+    presence: true,
+    uniqueness: true
 
   validates :reg_issued_on,
     presence: true
@@ -23,7 +24,8 @@ class Vehicle < ActiveRecord::Base
     presence: true
 
   validates :vin,
-    presence: true
+    presence: true,
+    uniqueness: true
 
   validates :year_of_manufacture,
     presence: true

@@ -5,5 +5,7 @@ class CreateAccidents < ActiveRecord::Migration
       t.string :protocol_number, null: false
       t.text :notes
     end
+
+    add_index :accidents, :protocol_number, unique: true
   end
 end

@@ -3,7 +3,8 @@ class License < ActiveRecord::Base
   has_and_belongs_to_many :vehicle_categories, join_table: 'license_vehicle_categories'
 
   validates :number,
-    presence: true
+    presence: true,
+    uniqueness: true
 
   validates :person,
     presence: true

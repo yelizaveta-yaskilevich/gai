@@ -50,3 +50,18 @@ VehicleModel.create!(vehicle_category_id: b.id, name: 'BMW X6 M');
 VehicleModel.create!(vehicle_category_id: b.id, name: 'BMW Z3');
 VehicleModel.create!(vehicle_category_id: b.id, name: 'BMW Z4');
 VehicleModel.create!(vehicle_category_id: b.id, name: 'BMW Z4 M');
+
+Person.create!(
+  first_name: 'Иван',
+  middle_name: 'Иванович',
+  last_name: 'Иванов',
+  passport_number: 'KH1234567',
+  passport_issued_by: 'Лениский РОВД, г. Гродно',
+  passport_issued_on: '2005-05-15',
+  address_region: 'Гродненский',
+  address_area: 'Лениский',
+  address_city: 'Гродно',
+  address_street: 'Ленина',
+  address_house: '32',
+  address_flat: '5',
+)

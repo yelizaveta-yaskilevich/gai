@@ -1,2 +1,5 @@
 class VehicleColor < ActiveRecord::Base
+  validates :name,
+    presence: true,
+    uniqueness: true
 end
