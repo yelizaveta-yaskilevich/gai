@@ -3,6 +3,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :vehicle_color
   belongs_to :person
 
+  has_one :vehicle_category, through: :vehicle_model
   has_many :accident_participant
   has_many :accidents, through: :accident_participant
 
