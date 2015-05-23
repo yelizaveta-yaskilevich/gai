@@ -1,20 +1,26 @@
 ActiveAdmin.register License do
   menu label: 'Удостоверения', priority: 2
 
-  permit_params :number, :person_id, :issued_on, :ended_on, vehicle_category_ids: []
+  controller do
+    def scoped_collection
+      super.includes(:vehicle_categories, :person)
+    end
+  end
 
   index title: 'Водительские удостоверения' do
-    column('Номер') do |license|
+    column('Номер', sortable: 'number') do |license|
       link_to license.number, admin_license_path(license)
     end
     column('Категории'){ |license| license.vehicle_categories.order(:id).map(&:name).join(', ') }
-    column('Гражданин'){ |license| license.person.name }
-    column('Действительно с'){ |license| license.issued_on }
-    column('Действительно до'){ |license| license.ended_on }
+    column('Гражданин', sortable: 'people.last_name'){ |license| license.person.name }
+    column('Действительно с', :issued_on)
+    column('Действительно до', :ended_on)
   end
 
   filter :number, label: 'Номер'
   filter :person, label: 'Гражданин'
+
+  permit_params :number, :person_id, :issued_on, :ended_on, vehicle_category_ids: []
 
   form do |f|
     inputs 'Водительское удостоверение' do
