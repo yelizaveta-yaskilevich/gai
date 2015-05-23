@@ -35,7 +35,7 @@ ActiveAdmin.register Vehicle do
       column do
         inputs 'Государственная регистрация' do
           input :reg_number, label: 'Номер'
-          input :reg_issued_on, label: 'Дата'
+          input :reg_issued_on, label: 'Дата', start_year: 1930, end_year: 2030
           input :person, label: 'Владелец'
         end
       end

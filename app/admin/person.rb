@@ -26,7 +26,7 @@ ActiveAdmin.register Person do
           input :middle_name, label: 'Отчество'
           input :passport_number, label: 'Паспорт'
           input :passport_issued_by, label: 'Выдан'
-          input :passport_issued_on, label: 'Дата'
+          input :passport_issued_on, label: 'Дата', start_year: 1930, end_year: 2030
         end
       end
 

@@ -19,8 +19,8 @@ ActiveAdmin.register License do
     inputs 'Водительское удостоверение' do
       input :person, label: 'Гражданин'
       input :number, label: 'Номер удостоверения'
-      input :issued_on, label: 'Действительно с'
-      input :ended_on, label: 'Действительно до'
+      input :issued_on, label: 'Действительно с', start_year: 1930, end_year: 2030
+      input :ended_on, label: 'Действительно до', start_year: 1930, end_year: 2030
     end
     actions
   end

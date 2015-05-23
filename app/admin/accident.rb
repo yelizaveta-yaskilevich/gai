@@ -16,7 +16,7 @@ ActiveAdmin.register Accident do
   form do |f|
     inputs 'Дорожно-транспортное происшествие' do
       input :protocol_number, label: 'Номер протокола'
-      input :occured_at, label: 'Время происшествия'
+      input :occured_at, label: 'Время происшествия', start_year: 1930, end_year: 2030
       input :notes, label: 'Описание'
     end
     actions
