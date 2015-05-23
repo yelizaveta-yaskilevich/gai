@@ -6,11 +6,11 @@ ActiveAdmin.register Person do
     :address_city, :address_street, :address_house, :address_flat
 
   index title: 'Граждане' do
-    column('ФИО') do |person|
+    column('ФИО', sortable: 'last_name') do |person|
       link_to person.name, admin_person_path(person)
     end
-    column('Город'){ |person| person.address_city }
-    column('Адрес'){ |person| person.short_address }
+    column('Город', :address_city)
+    column('Адрес', :short_address)
   end
 
   filter :passport, label: 'Паспорт'
