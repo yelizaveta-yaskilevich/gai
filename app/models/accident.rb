@@ -1,11 +1,10 @@
 class Accident < ActiveRecord::Base
-  validates :protocol_number,
-    presence: true
+  has_many :accident_participants
 
-  validates :occured_at,
-    presence: true
+  validates :protocol_number, presence: true
+  validates :occured_at, presence: true
 
   def name
-    protocol_number
+    'ДТП - %s' % [protocol_number]
   end
 end

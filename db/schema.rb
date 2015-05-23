@@ -14,10 +14,9 @@
 ActiveRecord::Schema.define(version: 20150521215052) do
 
   create_table "accident_participants", force: :cascade do |t|
-    t.integer "accident_id"
-    t.integer "person_id"
-    t.integer "vehicle_id"
-    t.boolean "is_driver"
+    t.integer "accident_id", null: false
+    t.integer "person_id",   null: false
+    t.integer "vehicle_id",  null: false
   end
 
   add_index "accident_participants", ["accident_id"], name: "index_accident_participants_on_accident_id"
