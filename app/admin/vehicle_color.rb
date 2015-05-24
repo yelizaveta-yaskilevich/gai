@@ -14,14 +14,14 @@ ActiveAdmin.register VehicleColor do
   permit_params :name
 
   form do |f|
-    inputs 'Цвет транспортного средств' do
+    inputs 'Цвет транспортных средств' do
       input :name, label: 'Наименование'
     end
     actions
   end
 
   show do
-    panel 'Цвет транспортного средств' do
+    panel 'Цвет транспортных средств' do
       attributes_table_for vehicle_color do
         row('Наименование'){ vehicle_color.name }
       end
