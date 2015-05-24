@@ -47,4 +47,5 @@ end
 
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_skin', github: 'rstgroup/active_skin'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'

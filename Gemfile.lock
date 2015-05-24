@@ -17,6 +17,12 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/rstgroup/active_skin.git
+  revision: cdcbdd2f836f9ef7e99eda986a386fc68d3dc284
+  specs:
+    active_skin (0.0.8)
+
+GIT
   remote: git://github.com/svenfuchs/rails-i18n.git
   revision: bfa65aa8dc3ede5c01026ca6e89d7aaec0b5ea99
   branch: master
@@ -217,6 +223,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_skin!
   activeadmin!
   byebug
   coffee-rails (~> 4.1.0)

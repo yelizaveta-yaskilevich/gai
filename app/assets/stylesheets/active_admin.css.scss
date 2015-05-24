@@ -11,6 +11,18 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
+$skinHeaderBck: #445566;
+$panelHeaderBck: #225577;
+$skinActiveColor: #44aacc;
+$skinLogo: image_url("logo") no-repeat 0 0;
+
+@import "active_skin";
+
+// $skinActiveColor: #001cee;
+// $skinHeaderBck: #002744;
+// $panelHeaderBck: #002744;
+
+
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
@@ -19,5 +31,20 @@
 #license_vehicle_categories_input {
   ol li {
     display: inline-block;
+  }
+}
+
+#title_bar .action_items span.action_item > a {
+  @include rounded(0);
+  background: $skinActiveColor;
+  color: #fff;
+  @include no-shadow();
+  text-shadow: none;
+  border: none;
+  padding: 17px;
+  font-size: 14px;
+
+  &:hover {
+    background: lighten( $skinActiveColor, 10% ) !important;
   }
 }
