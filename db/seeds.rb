@@ -17,6 +17,8 @@ d  = VehicleCategory.create!(name: 'D', description: 'автомобили, пр
 f  = VehicleCategory.create!(name: 'F', description: 'трамваи');
 i  = VehicleCategory.create!(name: 'I', description: 'троллейбусы');
 
+VehicleColor.create!(name: 'Черный');
+VehicleColor.create!(name: 'Белый');
 VehicleColor.create!(name: 'Красный');
 VehicleColor.create!(name: 'Оранжевый');
 VehicleColor.create!(name: 'Желтый');
