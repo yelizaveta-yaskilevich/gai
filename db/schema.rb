@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 11) do
+ActiveRecord::Schema.define(version: 12) do
 
   create_table "accident_participants", force: :cascade do |t|
     t.integer "accident_id", limit: 4, null: false
@@ -99,13 +99,14 @@ ActiveRecord::Schema.define(version: 11) do
   add_index "vehicle_models", ["vehicle_category_id"], name: "index_vehicle_models_on_vehicle_category_id", using: :btree
 
   create_table "vehicles", force: :cascade do |t|
-    t.string  "vin",                 limit: 17, null: false
-    t.string  "reg_number",          limit: 9,  null: false
-    t.date    "reg_issued_on",                  null: false
-    t.integer "vehicle_model_id",    limit: 4,  null: false
-    t.integer "vehicle_color_id",    limit: 4,  null: false
-    t.integer "person_id",           limit: 4,  null: false
-    t.integer "year_of_manufacture", limit: 4,  null: false
+    t.string  "vin",                 limit: 17,                 null: false
+    t.string  "reg_number",          limit: 9,                  null: false
+    t.date    "reg_issued_on",                                  null: false
+    t.integer "vehicle_model_id",    limit: 4,                  null: false
+    t.integer "vehicle_color_id",    limit: 4,                  null: false
+    t.integer "person_id",           limit: 4,                  null: false
+    t.integer "year_of_manufacture", limit: 4,                  null: false
+    t.boolean "stolen",              limit: 1,  default: false, null: false
   end
 
   add_index "vehicles", ["person_id"], name: "index_vehicles_on_person_id", using: :btree

@@ -28,7 +28,7 @@ ActiveAdmin.register Vehicle do
   filter :person, label: 'Владелец'
 
   permit_params :reg_number, :reg_issued_on, :person_id, :vehicle_model_id,
-    :vehicle_color_id, :vin, :year_of_manufacture
+    :vehicle_color_id, :vin, :year_of_manufacture, :stolen
 
   form do |f|
     columns do
@@ -37,6 +37,7 @@ ActiveAdmin.register Vehicle do
           input :reg_number, label: 'Номер'
           input :reg_issued_on, label: 'Дата', start_year: 1930, end_year: 2030
           input :person, label: 'Владелец'
+          input :stolen, label: 'Находится в угоне'
         end
       end
 
@@ -61,6 +62,7 @@ ActiveAdmin.register Vehicle do
             row('Номер'){ vehicle.reg_number }
             row('Дата регистрации'){ vehicle.reg_issued_on }
             row('Владелец'){ vehicle.person }
+            row('Находится в угоне'){ vehicle.stolen? ? 'Да' : 'Нет' }
           end
         end
       end
